@@ -1,5 +1,5 @@
 # Rain2Flood
-This plugin processes rainfall data from IMD or CHIRPS sources to perform hydrological analysis. It calculates design rainfall for various return periods, estimates peak discharge, generates flood inundation maps, and produces hydrographs and HEC-HMS input files.
+This QGIS Toolbox plugin processes rainfall data from IMD or CHIRPS sources to perform hydrological analysis. It calculates design rainfall for various return periods, estimates peak discharge, generates flood inundation maps, and produces hydrographs and HEC-HMS input files.
 The Rain to Flood Analysis QGIS plugin enables end-to-end hydrological modeling by transforming rainfall data into flood inundation maps. It supports rainfall frequency analysis, runoff estimation, flood hydrograph generation, and automated outputs compatible with HEC-HMS and QGIS.
 
 ✨ Features
