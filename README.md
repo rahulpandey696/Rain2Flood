@@ -3,7 +3,9 @@
 **Rain2Flood** is a powerful QGIS Processing Toolbox plugin that enables complete hydrological analysis — from rainfall data to flood inundation mapping — all within a single streamlined workflow.
 
 Designed for researchers, students, water resource engineers, flood modellers, and disaster management professionals, it automates every step from rainfall frequency analysis to runoff calculation, hydrograph generation, and export to HEC-HMS formats.
-
+Watch Video for the Workflow-
+https://youtu.be/H5JiZJiFRd8?si=uoVIoUiu2pwevTx3
+Follow on linkedin- www.linkedin.com/in/rahul-pandey-nitb
 ---
 
 ## 🚀 Key Features
