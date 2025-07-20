@@ -4,10 +4,14 @@
 
 Designed for researchers, students, water resource engineers, flood modellers, and disaster management professionals, it automates every step from rainfall frequency analysis to runoff calculation, hydrograph generation, and export to HEC-HMS formats.
 Watch Video for the Workflow-
-https://youtu.be/H5JiZJiFRd8?si=uoVIoUiu2pwevTx3
+
+https://youtu.be/mJp9Be4vQcs?si=c-Tc5tqZuMlAX6oS
+
 Follow on linkedin- www.linkedin.com/in/rahul-pandey-nitb
 ---
-
+Nandi, Saswata, Pratiman Patel, and Sabyasachi Swain. "IMDLIB: An open-source library for retrieval, processing and spatiotemporal exploratory assessments of gridded meteorological observation datasets over India." Environmental Modelling & Software 171 (2024): 105869.
+ 
+IMDLIB github repo - https://github.com/iamsaswata/imdlib
 ## 🚀 Key Features
 
 - 🔄 **Automated Rainfall Processing**  
@@ -45,7 +49,7 @@ Follow on linkedin- www.linkedin.com/in/rahul-pandey-nitb
 
 Make sure you have QGIS with OSGeo4W Shell installed. Then run:
 
-```bash
+
 pip install imdlib xarray geopandas rasterio shapely scipy pandas numpy matplotlib
 🧑‍💻 Contributing
 We welcome all contributors — hydrologists, GIS specialists, and Python developers alike!
