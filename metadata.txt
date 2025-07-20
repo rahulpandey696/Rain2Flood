@@ -1,0 +1,39 @@
+[general]
+name=Rain to Flood Analysis
+qgisMinimumVersion=3.16
+description=A comprehensive hydrological analysis tool that transforms rainfall data into flood inundation maps. Performs frequency analysis, runoff calculations, hydrograph generation, and creates HEC-HMS compatible outputs.
+version=1.0
+author=Rahul Pandey
+email=rahulpandey696@gmail.com
+about=This plugin processes rainfall data from IMD or CHIRPS sources to perform hydrological analysis. It calculates design rainfall for various return periods, estimates peak discharge, generates flood inundation maps, and produces hydrographs and HEC-HMS input files. References: Nandi, Saswata, Pratiman Patel, and Sabyasachi Swain. "IMDLIB: An open-source library for retrieval, processing and spatiotemporal exploratory assessments of gridded meteorological observation datasets over India." Environmental Modelling & Software 171 (2024): 105869. IMDLIB github repo: https://github.com/iamsaswata/imdlib
+changelog=Initial release
+tracker=https://github.com/rahulpandey696/Rain2Flood/issues
+repository=https://github.com/rahulpandey696/Rain2Flood
+homepage=https://github.com/rahulpandey696/Rain2Flood
+tags=hydrology,flood,rainfall,analysis,hec-hms,water,discharge,inundation
+icon=icon.png
+category=Hydrology
+experimental=False
+deprecated=False
+plugin_dependencies=imdlib,xarray,geopandas,rasterio,shapely,scipy,pandas,numpy,matplotlib
+
+[settings]
+hasProcessingProvider=yes
+hasProjectProvider=no
+
+[qgis]
+minimum_version=3.16
+maximum_version=4.99
+default_separator=;
+
+[license]
+name=GNU GPL v3+
+file=LICENSE  # MUST exist in plugin root
+
+[requirements]
+os=windows,linux,osx
+python_requires=3.7
+pip_requires=imdlib,xarray,geopandas,rasterio,shapely,scipy,pandas,numpy,matplotlib
+
+[changelog]
+1.0=Initial release with full hydrological analysis workflow
