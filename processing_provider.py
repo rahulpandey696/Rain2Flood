@@ -986,9 +986,6 @@ class Rain2FloodAlgorithm(QgsProcessingAlgorithm):
             files.sort()
             feedback.pushInfo(f"Found {len(files)} CHIRPS files")
             
-            # Adjust longitude for CHIRPS (0-360)
-            lon_adj = lon + 360 if lon < 0 else lon
-            
             # Create list to store data
             all_dates = []
             all_rain = []
@@ -1009,9 +1006,25 @@ class Rain2FloodAlgorithm(QgsProcessingAlgorithm):
                             feedback.pushInfo(f"Skipping {file_path}: 'precip' variable not found")
                             continue
                         
+                        # Determine longitude convention
+                        lon_min = ds.longitude.values.min()
+                        lon_max = ds.longitude.values.max()
+                        
+                        # Adjust longitude based on dataset convention
+                        if lon_min >= 0 and lon_max <= 360:
+                            # Dataset uses 0-360 convention
+                            use_lon = lon % 360
+                        elif lon_min >= -180 and lon_max <= 180:
+                            # Dataset uses -180 to 180 convention
+                            use_lon = lon
+                        else:
+                            # Unknown convention, use original longitude
+                            use_lon = lon
+                            feedback.pushWarning("Unknown longitude convention in CHIRPS file. Using original longitude.")
+                        
                         # Find closest indices
                         lat_idx = np.abs(ds.latitude.values - lat).argmin()
-                        lon_idx = np.abs(ds.longitude.values - lon_adj).argmin()
+                        lon_idx = np.abs(ds.longitude.values - use_lon).argmin()
                         
                         # Extract data for this point only
                         precip_data = ds['precip'][:, lat_idx, lon_idx].values
@@ -1021,6 +1034,10 @@ class Rain2FloodAlgorithm(QgsProcessingAlgorithm):
                         all_dates.extend(dates)
                         all_rain.extend(precip_data)
                         
+                        # Log actual point used
+                        actual_lat = ds.latitude.values[lat_idx]
+                        actual_lon = ds.longitude.values[lon_idx]
+                        feedback.pushInfo(f"Using CHIRPS point for {year}: lat={actual_lat}, lon={actual_lon}")
                         feedback.pushInfo(f"Loaded {year} data: {len(precip_data)} records")
                     
                 except Exception as e:
@@ -1042,8 +1059,8 @@ class Rain2FloodAlgorithm(QgsProcessingAlgorithm):
             # Filter to date range
             rainfall_df = rainfall_df.loc[f"{start_year}-01-01":f"{end_year}-12-31"]
             
-            # Set negative values to 0
-            rainfall_df['Rainfall (mm)'] = rainfall_df['Rainfall (mm)'].clip(lower=0)
+            # Set negative values to 0 and fill NaN with 0
+            rainfall_df['Rainfall (mm)'] = rainfall_df['Rainfall (mm)'].fillna(0).clip(lower=0)
             
             feedback.pushInfo(f"Successfully loaded {len(rainfall_df)} CHIRPS records")
             return rainfall_df
