@@ -1,4 +1,48 @@
 # 🌧️ Rain2Flood: From Rainfall to Flood Inundation Mapping in QGIS
+Changelog for Rain2Flood Plugin v2.1
+🚀 Major New Features
+Flash Flood Analysis (Hourly): Added specialized analysis for short-duration flood events using hourly rainfall data
+Multiple Rainfall Data Sources:
+
+Open-Meteo API integration for global hourly/daily data
+Excel file support for custom rainfall data
+Enhanced IMD and CHIRPS data processing
+Enhanced DEM Processing: Improved catchment extraction and slope analysis
+HEC-HMS Export: Generate input files for HEC-HMS hydrological modeling
+Dependency Management: Automated package installation system
+
+✨ Improvements
+User Interface Enhancements:
+Point selection directly from QGIS map
+Calendar widgets for date selection
+Dropdown suggestions for parameters (CN, Manning's n, runoff coefficients)
+
+Analysis Methods:
+
+SCS Unit Hydrograph method
+Rational Method for short-duration storms
+Time-Area Method
+
+Flood Mapping:
+
+Improved Manning's equation-based depth calculation
+Better flood extent algorithms
+Enhanced visualization
+Memory Management: Optimized processing for large datasets
+
+🐛 Bug Fixes
+Fixed CHIRPS data extraction for global users
+Improved frequency analysis for small datasets
+Better error handling and user feedback
+
+Fixed memory leaks in geopandas/rasterio operations
+
+🔧 Technical Updates
+Modular code structure with separate processing algorithms
+Better exception handling and logging
+Improved documentation and parameter descriptions
+Enhanced plot visualizations
+
 
 **Rain2Flood** is a powerful QGIS Processing Toolbox plugin that enables complete hydrological analysis — from rainfall data to flood inundation mapping — all within a single streamlined workflow.
 
@@ -76,6 +120,11 @@ The global QGIS and open-source community.
 
 🔗 Useful Links
 📘 Official QGIS Plugin Repository (Submit/Track)
+
+
+
+
+
 
 🌐 CHIRPS Rainfall Data
 
